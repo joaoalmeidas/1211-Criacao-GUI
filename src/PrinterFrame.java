@@ -53,46 +53,62 @@ public class PrinterFrame extends JFrame {
 		super("Printer");
 		setLayout(new FlowLayout());
 		
+		direita = new JPanel();
+		direita.setLayout(new GridLayout(4, 1, 5, 5));
+		
+		externo = new JPanel();
+		externo.setLayout(new GridLayout(3, 1));
+		
+		configuracoes = new JPanel();
+		configuracoes.setLayout(new FlowLayout());
+		
+		panelChecks = new JPanel();
+		panelChecks.setLayout(new GridLayout(3, 1));
+		
+		panelRadios = new JPanel();
+		panelRadios.setLayout(new GridLayout(3, 1));
+		
+		panelQualidade = new JPanel();
+		panelQualidade.setLayout(new FlowLayout());
+		
+		labelImpressora = new JLabel("Impressora: Minha Impressora");
 		
 		botaoOk = new JButton("Ok");
 		botaoCancelar = new JButton("Cancelar");
 		botaoSetup = new JButton("Setup");
 		botaoAjuda = new JButton("Ajuda");
 		
-		direita = new JPanel();
+		text1 = new JTextArea(4, 4);
+		text2 = new JTextArea(4, 3);
+		text3 = new JTextArea(4, 4);
 		
+		checkImagem = new JCheckBox("Imagem");
+		checkTexto = new JCheckBox("Texto");
+		checkCodigo = new JCheckBox("Código");
 		
-		direita.setLayout(new GridLayout(4, 1, 5, 5));
+		grupoBotoes = new ButtonGroup();
+		radioSelecao = new JRadioButton("Seleção");
+		grupoBotoes.add(radioSelecao);
+		radioTudo = new JRadioButton("Tudo");
+		grupoBotoes.add(radioTudo);
+		radioApplet = new JRadioButton("Applet");
+		grupoBotoes.add(radioApplet);
+		
+		labelQualidade = new JLabel("Qualidade da impressão:");
+		qualidade = new JComboBox<String>(nomeQualidade);
+		checkPrint = new JCheckBox("Imprimir para arquivo");
+		
+
 		
 		
 		direita.add(botaoOk);
 		direita.add(botaoCancelar);
 		direita.add(botaoSetup);
 		direita.add(botaoAjuda);
-		
-		externo = new JPanel();
-		externo.setLayout(new GridLayout(3, 1));
-		
-		labelImpressora = new JLabel("Impressora: Minha Impressora");
-		
+				
 		externo.add(labelImpressora);
 		
-		configuracoes = new JPanel();
-		
-		configuracoes.setLayout(new FlowLayout());
-		
-		panelChecks = new JPanel();
-		panelChecks.setLayout(new GridLayout(3, 1));
-		
-		text1 = new JTextArea(4, 4);
-		text2 = new JTextArea(4, 3);
-		text3 = new JTextArea(4, 4);
-		
 		configuracoes.add(text1);
-		
-		checkImagem = new JCheckBox("Imagem");
-		checkTexto = new JCheckBox("Texto");
-		checkCodigo = new JCheckBox("Código");
 		
 		panelChecks.add(checkImagem);
 		panelChecks.add(checkTexto);
@@ -101,17 +117,6 @@ public class PrinterFrame extends JFrame {
 		configuracoes.add(panelChecks);
 		
 		configuracoes.add(text2);
-		
-		panelRadios = new JPanel();
-		panelRadios.setLayout(new GridLayout(3, 1));
-		grupoBotoes = new ButtonGroup();
-		
-		radioSelecao = new JRadioButton("Seleção");
-		grupoBotoes.add(radioSelecao);
-		radioTudo = new JRadioButton("Tudo");
-		grupoBotoes.add(radioTudo);
-		radioApplet = new JRadioButton("Applet");
-		grupoBotoes.add(radioApplet);
 		
 		panelRadios.add(radioSelecao);
 		panelRadios.add(radioTudo);
@@ -122,13 +127,6 @@ public class PrinterFrame extends JFrame {
 		configuracoes.add(text3);
 		
 		externo.add(configuracoes);
-		
-		panelQualidade = new JPanel();
-		panelQualidade.setLayout(new FlowLayout());
-		
-		labelQualidade = new JLabel("Qualidade da impressão:");
-		qualidade = new JComboBox<String>(nomeQualidade);
-		checkPrint = new JCheckBox("Imprimir para arquivo");
 		
 		panelQualidade.add(labelQualidade);
 		panelQualidade.add(qualidade);
