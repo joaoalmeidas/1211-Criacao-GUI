@@ -1,12 +1,17 @@
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 public class PrinterFrame extends JFrame {
+	
+	private final JPanel externo;
 
 	private final JButton botaoOk;
 	private final JButton botaoCancelar;
@@ -14,6 +19,21 @@ public class PrinterFrame extends JFrame {
 	private final JButton botaoAjuda;
 	
 	private final JPanel direita;
+	
+	private final JLabel labelImpressora;
+	
+	private final JPanel configuracoes;
+	private final JPanel panelChecks;
+	private final JPanel panelRadios;
+	
+	private final JCheckBox checkImagem;
+	private final JCheckBox checkTexto;
+	private final JCheckBox checkCodigo;
+	
+	private final JRadioButton radioSelecao;
+	private final JRadioButton radioTudo;
+	private final JRadioButton radioApplet;
+	private final ButtonGroup grupoBotoes;
 	
 	public PrinterFrame(){
 		
@@ -37,8 +57,49 @@ public class PrinterFrame extends JFrame {
 		direita.add(botaoSetup);
 		direita.add(botaoAjuda);
 		
+		externo = new JPanel();
+		externo.setLayout(new GridLayout(3, 1));
 		
-		add(direita, BorderLayout.EAST);
+		labelImpressora = new JLabel("Impressora: Minha Impressora");
+		
+		externo.add(labelImpressora);
+		
+		configuracoes = new JPanel();
+		
+		panelChecks = new JPanel();
+		panelChecks.setLayout(new GridLayout(3, 1));
+		
+		checkImagem = new JCheckBox("Imagem");
+		checkTexto = new JCheckBox("Texto");
+		checkCodigo = new JCheckBox("Código");
+		
+		panelChecks.add(checkImagem);
+		panelChecks.add(checkTexto);
+		panelChecks.add(checkCodigo);
+		
+		configuracoes.add(panelChecks);
+		
+		externo.add(configuracoes);
+		
+		panelRadios = new JPanel();
+		panelRadios.setLayout(new GridLayout(3, 1));
+		grupoBotoes = new ButtonGroup();
+		
+		radioSelecao = new JRadioButton("Seleção");
+		grupoBotoes.add(radioSelecao);
+		radioTudo = new JRadioButton("Tudo");
+		grupoBotoes.add(radioTudo);
+		radioApplet = new JRadioButton("Applet");
+		grupoBotoes.add(radioApplet);
+		
+		panelRadios.add(radioSelecao);
+		panelRadios.add(radioTudo);
+		panelRadios.add(radioApplet);
+		
+		configuracoes.add(panelRadios);
+		
+		add(externo);
+		add(direita);
 		
 	}
 	
