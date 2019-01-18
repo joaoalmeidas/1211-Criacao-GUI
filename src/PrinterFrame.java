@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class PrinterFrame extends JFrame {
 	
@@ -34,6 +35,11 @@ public class PrinterFrame extends JFrame {
 	private final JRadioButton radioTudo;
 	private final JRadioButton radioApplet;
 	private final ButtonGroup grupoBotoes;
+	
+	private final JTextArea text1;
+	private final JTextArea text2;
+	private final JTextArea text3;
+	
 	
 	public PrinterFrame(){
 		
@@ -66,8 +72,16 @@ public class PrinterFrame extends JFrame {
 		
 		configuracoes = new JPanel();
 		
+		configuracoes.setLayout(new FlowLayout());
+		
 		panelChecks = new JPanel();
 		panelChecks.setLayout(new GridLayout(3, 1));
+		
+		text1 = new JTextArea(4, 4);
+		text2 = new JTextArea(4, 3);
+		text3 = new JTextArea(4, 4);
+		
+		configuracoes.add(text1);
 		
 		checkImagem = new JCheckBox("Imagem");
 		checkTexto = new JCheckBox("Texto");
@@ -79,7 +93,7 @@ public class PrinterFrame extends JFrame {
 		
 		configuracoes.add(panelChecks);
 		
-		externo.add(configuracoes);
+		configuracoes.add(text2);
 		
 		panelRadios = new JPanel();
 		panelRadios.setLayout(new GridLayout(3, 1));
@@ -97,6 +111,10 @@ public class PrinterFrame extends JFrame {
 		panelRadios.add(radioApplet);
 		
 		configuracoes.add(panelRadios);
+		
+		configuracoes.add(text3);
+		
+		externo.add(configuracoes);
 		
 		add(externo);
 		add(direita);
