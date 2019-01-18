@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,6 +41,12 @@ public class PrinterFrame extends JFrame {
 	private final JTextArea text2;
 	private final JTextArea text3;
 	
+	private final JPanel panelQualidade;
+	private final JLabel labelQualidade;
+	private final JComboBox<String> qualidade;
+	private final String[] nomeQualidade = {"Alto", "Médio", "Baixo"};
+	private final JCheckBox checkPrint;
+
 	
 	public PrinterFrame(){
 		
@@ -115,6 +122,19 @@ public class PrinterFrame extends JFrame {
 		configuracoes.add(text3);
 		
 		externo.add(configuracoes);
+		
+		panelQualidade = new JPanel();
+		panelQualidade.setLayout(new FlowLayout());
+		
+		labelQualidade = new JLabel("Qualidade da impressão:");
+		qualidade = new JComboBox<String>(nomeQualidade);
+		checkPrint = new JCheckBox("Imprimir para arquivo");
+		
+		panelQualidade.add(labelQualidade);
+		panelQualidade.add(qualidade);
+		panelQualidade.add(checkPrint);
+		
+		externo.add(panelQualidade);
 		
 		add(externo);
 		add(direita);
